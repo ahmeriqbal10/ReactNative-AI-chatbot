@@ -1,0 +1,2 @@
+export const OPENAI_API_KEY = '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';
+export const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
