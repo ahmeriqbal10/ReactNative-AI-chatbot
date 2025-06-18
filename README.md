@@ -1,50 +1,85 @@
-# Welcome to your Expo app 👋
+# React Native Chatbot Project
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a React Native Chatbot app using **Expo** and **GPT models**. The app integrates a chatbot UI, allowing users to interact with AI models like GPT-4, GPT-3.5, and GPT-4 Turbo.
 
-## Get started
+## Prerequisites
 
-1. Install dependencies
+Before you start, make sure you have the following installed:
 
-   ```bash
-   npm install
-   ```
+1. **Node.js** - [Download Node.js](https://nodejs.org/)
+2. **Expo CLI** - Install it globally by running:
 
-2. Start the app
+    ```bash
+    npm install -g expo-cli
+    ```
 
-   ```bash
-   npx expo start
-   ```
+3. **React Native Environment** (for iOS or Android development) - Follow the official [React Native Environment Setup Guide](https://reactnative.dev/docs/environment-setup).
 
-In the output, you'll find options to open the app in a
+## Getting Started
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Follow these steps to set up and run the project locally:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1. **Clone the repository:**
 
-## Get a fresh project
+    ```bash
+    git clone <repository_url>
+    cd <project_directory>
+    ```
 
-When you're ready, run:
+2. **Install dependencies:**
 
-```bash
-npm run reset-project
-```
+    Run the following command to install the necessary dependencies:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+    ```bash
+    npm install
+    ```
 
-## Learn more
+    Or if you are using yarn:
 
-To learn more about developing your project with Expo, look at the following resources:
+    ```bash
+    yarn install
+    ```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+3. **Run the application:**
 
-## Join the community
+    - For **Android**:
 
-Join our community of developers creating universal apps.
+    ```bash
+    expo start --android
+    ```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+    - For **iOS**:
+
+    ```bash
+    expo start --ios
+    ```
+
+    - For **Web**:
+
+    ```bash
+    expo start --web
+    ```
+
+4. **Ensure the app is running on your device/emulator**. Open the app using the Expo Go app on your mobile device, or run it in an Android/iOS emulator.
+
+## API Integration
+
+This project uses the **Chat Completion API** to interact with AI models. You need an API key to interact with the service.
+
+### Getting the API Key and Endpoint
+
+1. **API Endpoint:**  
+   The API URL for this project is:
+   API_URL = 'https://api.openai.com/v1/completions';
+
+2. **API Key:**  
+To obtain your API key:
+
+- Visit the [OpenAI API Platform](https://beta.openai.com/signup/).
+- Sign up for an account (if you don’t have one).
+- After signing in, go to the **API Keys** section and create a new API key.
+
+3. **API Constants**:  
+In this project, we store API-related configurations in `Constants.ts`. Update the `Constants.ts` file with the following:
+
+```ts
