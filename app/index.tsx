@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useRouter, Stack } from 'expo-router';
-import { styles } from '../../ReactChatbot/Styling/Homesreenstyle';
+import { styles } from '../Styling/Homesreenstyle';
 
 const Index = () => {
   const router = useRouter();
