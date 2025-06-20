@@ -21,7 +21,7 @@ const Chatbot = () => {
   
 // AI models available for selection
   const models: Model[] = [
-    { id: 'gpt-4', name: 'GPT-4', description: 'Most capable model' },
+    { id: 'DeepSeek-R1-0528', name: 'DeepSeek-R1-0528', description: 'Free LLM' },
     { id: 'gpt-4-turbo', name: 'GPT-4 Turbo', description: 'Faster and more efficient' },
     { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo', description: 'Fast and cost-effective' },
   ];

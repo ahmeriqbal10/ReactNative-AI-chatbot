@@ -1,9 +1,10 @@
 // Importing necessary libraries
 import axios from 'axios';
 import { Alert } from 'react-native';
-import { OPENAI_API_KEY, OPENAI_API_URL } from './Constants';
-import { Message } from './interfaces'; // Import the Message interface
-// Example prompts for the user to select
+import { OPENAI_API_KEY, OPENAI_API_URL ,DEEPSEEK_KEY,DEEPSEEK_URL} from './Constants';
+import { Message } from './interfaces';
+
+// Sugesstion prompts for the user to select
 const examplePrompts = [
   "How can I stay motivated? ",
   "Can you help me plan my day?",
@@ -11,10 +12,26 @@ const examplePrompts = [
   "What are the latest trends in technology?",
   "Can you tell me a fun fact?"
 ];
+
+// Function to remove think tags from the response
+const removeThinkTags = (text: string): string => {
+// Remove content between <think> and </think> tags 
+  return text.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
+};
+
 // Function to interact with the OpenAI API and get a response
 const chatCompletion = async (messages: Message[], model: string): Promise<string> => {
+    var url: string = "";
+    var key: string = "";
   try {
-    // Get the last message in the converstion
+    // Get the last message in the conversation
+    if (model== "DeepSeek-R1-0528") {
+      url= DEEPSEEK_URL; // Use the model in the URL for DeepSeek
+      key = DEEPSEEK_KEY; // Use the DeepSeek API key
+    }else{
+      url = OPENAI_API_URL; // Use the OpenAI API URL for other models
+      key = OPENAI_API_KEY; // Use the OpenAI API key
+    }
     const lastMessage = messages[messages.length - 1];
     let processedMessages = [...messages];
 
@@ -30,9 +47,10 @@ const chatCompletion = async (messages: Message[], model: string): Promise<strin
         };
       }
     }
-// Make the API request 
+    console.log(key,url);
+    // Make the API request 
     const response = await axios.post(
-      OPENAI_API_URL,
+      url,
       {
         model: model,
         messages: processedMessages, 
@@ -40,12 +58,15 @@ const chatCompletion = async (messages: Message[], model: string): Promise<strin
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${OPENAI_API_KEY}`,
+          Authorization: `Bearer ${key}`,
         },
       }
     );
     
-    return response.data.choices[0].message.content;
+    const rawResponse = response.data.choices[0].message.content;
+    
+    // Remove think tags from the response before returning
+    return removeThinkTags(rawResponse);
   } catch (error) {
     console.error('Error with OpenAI Chat API:', error);
     Alert.alert('Error', 'Failed to get response. Please try again.');
