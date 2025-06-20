@@ -43,10 +43,9 @@ This is a React Native Chatbot app using Expo and GPT models. The app integrates
 
 ### Prerequisites
 Before you start, make sure you have the following installed:
-- **Node.js** - Download Node.js
-- **Expo CLI** - Install it globally by running:
-  ```bash
-  npm install -g expo-cli
+- **Node.js** 
+- **Expo CLI** 
+  
 ## Getting Started
 Follow these steps to set up and run the project locally:
 
