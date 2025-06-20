@@ -89,7 +89,7 @@ This project uses the **Chat Completion API** to interact with AI models. You ne
 - **OpenAI API (For GPT Models)**  
     - **API Endpoint**: The API URL for this project is:
       ```bash
-      API_URL = 'https://api.openai.com/v1/completions';
+      API_URL = 'https://api.openai.com/v1/chat/completions';
       ```
     - **API Key**: To obtain your API key:
         1. Visit the [OpenAI API Platform](https://beta.openai.com/signup/).
@@ -99,7 +99,7 @@ This project uses the **Chat Completion API** to interact with AI models. You ne
 - **Hugging Face API (For DeepSeek Model)**  
     - **API Endpoint**: The API URL for DeepSeek model is:
       ```bash
-      API_URL = 'https://api-inference.huggingface.co/models/deepseek-ai/DeepSeek-R1-0528';
+      API_URL = 'https://router.huggingface.co/sambanova/v1/chat/completions';
       ```
     - **API Key**: To obtain your Hugging Face API key:
         1. Visit the [Hugging Face API Platform](https://huggingface.co/).
